@@ -40,13 +40,15 @@ import HelloWorld from './components/HelloWorld.vue'
       <h2>Расчёт процента жира</h2>
       <form class="second-div-form">
         <div class="form-first-div">
-          <div>
-            <label for="weight">Вес (кг)</label>
-            <input type="text" id="weight" placeholder="Заполните поле" />
-          </div>
-          <div>
-            <label for="activity">Коэффициент активности</label>
-            <input type="text" id="activity" placeholder="Заполните поле" />
+          <div class="form-first-div-first-div">
+            <div>
+              <label for="weight">Вес (кг)</label>
+              <input type="text" id="weight" placeholder="Заполните поле" />
+            </div>
+            <div>
+              <label for="activity">Коэффициент активности</label>
+              <input type="text" id="activity" placeholder="Заполните поле" />
+            </div>
           </div>
           <div class="form-first-div-last-div">
             <p>1,2 — сидячий образ жизни, минимум движений</p>
@@ -61,21 +63,21 @@ import HelloWorld from './components/HelloWorld.vue'
               Масса тела <br />
               без жира
             </p>
-            <span>58 кг</span>
+            <h4>58 <span>кг</span></h4>
           </div>
           <div>
             <p>
               Обмен веществ <br />
               в покое
             </p>
-            <span>1406 Ккал</span>
+            <h4>1406 <span>Ккал</span></h4>
           </div>
           <div>
             <p>
               Расход калорий <br />
               в сутки
             </p>
-            <span>1828 Ккал</span>
+            <h4>1828 <span>Ккал</span></h4>
           </div>
         </div>
       </form>
@@ -140,10 +142,10 @@ import HelloWorld from './components/HelloWorld.vue'
               <td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px" class="td-1">
                 Куриная грудка <span>🗑️</span>
               </td>
-              <td class="td-1">400</td>
-              <td class="td-1">75</td>
-              <td class="td-1">1,4</td>
-              <td class="td-1">00</td>
+              <td class="td-1 td-h">400</td>
+              <td class="td-1 td-h">75</td>
+              <td class="td-1 td-h">1,4</td>
+              <td class="td-1 td-h">00</td>
               <td
                 style="border-top-right-radius: 5px; border-bottom-right-radius: 5px"
                 class="td-1"
@@ -155,10 +157,10 @@ import HelloWorld from './components/HelloWorld.vue'
               <td style="border-top-left-radius: 5px; border-bottom-left-radius: 5px" class="td-2">
                 Наименование продукта
               </td>
-              <td class="td-2">00</td>
-              <td class="td-2">00</td>
-              <td class="td-2">00</td>
-              <td class="td-2">00</td>
+              <td class="td-2 td-h">00</td>
+              <td class="td-2 td-h">00</td>
+              <td class="td-2 td-h">00</td>
+              <td class="td-2 td-h">00</td>
               <td
                 style="border-top-right-radius: 5px; border-bottom-right-radius: 10px"
                 class="td-2"
@@ -219,6 +221,7 @@ main {
         gap: 24px;
 
         div {
+          width: 100%;
           display: flex;
           justify-content: center;
           align-items: start;
@@ -232,7 +235,7 @@ main {
           }
 
           input {
-            width: 242px;
+            width: 100%;
             height: 54px;
             border-radius: 8px;
             padding: 15px 24px 15px 24px;
@@ -334,44 +337,57 @@ main {
         justify-content: space-between;
         align-items: end;
         gap: 24px;
-
-        div {
+        .form-first-div-first-div {
+          width: 100%;
           display: flex;
           justify-content: center;
-          align-items: start;
-          gap: 12px;
-          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+          div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            gap: 12px;
+            flex-direction: column;
 
-          label {
-            font-weight: 500;
-            font-size: 16;
-            color: #9aaac3;
-          }
+            label {
+              font-weight: 500;
+              font-size: 16;
+              color: #9aaac3;
+            }
 
-          input {
-            width: 242px;
-            height: 54px;
-            border-radius: 8px;
-            padding: 15px 24px 15px 24px;
-            background-color: #4f5a6b;
-            border: none;
-            outline: none;
-            color: white;
-            font-weight: 400;
-            font-size: 18px;
-          }
+            input {
+              width: 100%;
+              height: 54px;
+              border-radius: 8px;
+              padding: 15px 24px 15px 24px;
+              background-color: #4f5a6b;
+              border: none;
+              outline: none;
+              color: white;
+              font-weight: 400;
+              font-size: 18px;
+            }
 
-          input::placeholder {
-            color: #9aaac3;
-            font-weight: 400;
-            font-size: 18px;
+            input::placeholder {
+              color: #9aaac3;
+              font-weight: 400;
+              font-size: 18px;
+            }
           }
         }
+
         .form-first-div-last-div {
-          width: 508px;
+          width: 100%;
           border-radius: 8px;
           background-color: #2c3441;
           padding: 16px 20px 16px 20px;
+          display: flex;
+          justify-content: center;
+          align-items: start;
+          gap: 10px;
+          flex-direction: column;
           p {
             font-weight: 400;
             font-size: 14px;
@@ -395,11 +411,14 @@ main {
             font-weight: 600;
             font-size: 18px;
           }
-          span {
+          h4 {
             font-weight: 400;
             font-size: 48px;
             color: white;
             white-space: nowrap;
+            span {
+              font-size: 40px;
+            }
           }
         }
       }
@@ -436,7 +455,6 @@ main {
         justify-content: space-between;
         align-items: center;
         gap: 24px;
-
         div {
           display: flex;
           justify-content: center;
@@ -451,7 +469,7 @@ main {
           }
 
           input {
-            width: 242px;
+            width: 100%;
             height: 54px;
             border-radius: 8px;
             padding: 15px 24px 15px 24px;
@@ -484,7 +502,6 @@ main {
           gap: 12px;
           flex-direction: column;
           width: 100%;
-          height: 86px;
           border-radius: 8px;
           background-color: #55863e;
           padding: 15px 20px 15px 20px;
@@ -516,7 +533,6 @@ main {
           gap: 12px;
           flex-direction: column;
           width: 100%;
-          height: 86px;
           border-radius: 8px;
           background-color: #2c3441;
           padding: 15px 20px 15px 20px;
@@ -597,6 +613,180 @@ main {
         border: 2px solid #3b4555;
         color: #9aaac3;
         margin-top: 8px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  main {
+    .second-div {
+      .second-div-form {
+        .form-first-div {
+          justify-content: start;
+          align-items: start;
+          .form-first-div-first-div {
+            flex-direction: column;
+            gap: 8px;
+          }
+        }
+        .form-second-div {
+          justify-content: start;
+          align-items: start;
+          div {
+            justify-content: start;
+            gap: 10px;
+            h4 {
+              font-size: 35px;
+              span {
+                font-size: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .third-div {
+      .third-div-first-div {
+        .third-div-form {
+          div {
+            input {
+              padding: 10px 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  main {
+    .first-div {
+      padding: 35px;
+      .first-div-form {
+        .form-first-div {
+          div {
+            input {
+              font-size: 14px;
+            }
+            input::placeholder {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+    .second-div {
+      padding: 35px;
+      .second-div-form {
+        .form-first-div {
+          .form-first-div-first-div {
+            div {
+              input {
+                font-size: 14px;
+              }
+              input::placeholder {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+        .form-second-div {
+          div {
+            p {
+              font-size: 14px;
+            }
+            h4 {
+              font-size: 25px;
+              span {
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .third-div {
+      padding: 35px;
+      .third-div-first-div {
+        .third-div-form {
+          align-items: end;
+          div {
+            input {
+              font-size: 14px;
+            }
+            input::placeholder {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    .first-div {
+      .first-div-form {
+        .form-first-div {
+          gap: 8px;
+          div {
+            input {
+              padding: 6px 12px;
+            }
+          }
+        }
+      }
+    }
+    .second-div {
+      .second-div-form {
+        .form-first-div {
+          flex-direction: column;
+        }
+        .form-second-div {
+          flex-direction: column;
+          div {
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+    .third-div {
+      .third-div-first-div {
+        .third-div-form {
+          gap: 8px;
+          div {
+            input {
+              padding: 6px;
+            }
+          }
+        }
+        div {
+          flex-direction: column;
+          .third-div-min-first,
+          .third-div-min-second {
+            div {
+              flex-direction: row;
+            }
+          }
+        }
+      }
+      .third-div-second-div {
+        table {
+          thead {
+            display: none;
+          }
+          tbody {
+            .tr-1,
+            .tr-2 {
+              .td-h {
+                display: none;
+              }
+            }
+          }
+        }
       }
     }
   }
